@@ -1,10 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>Página de cadastro</title>
 </head>
 <body>
-$END$
+<form th:object="${pessoa}" th:action="@{/doSalvar}" method="post" enctype="multipart/form-data">
+
+  Nome: <input type="text" th:field="*{nome}">
+  Foto: <input type="file" name="file">
+
+  <button type="submit">Enviar</button>
+</form>
 </body>
 </html>

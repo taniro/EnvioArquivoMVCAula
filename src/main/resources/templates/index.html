@@ -1,10 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>Lista de Pessoas</title>
 </head>
 <body>
-$END$
+<h1>Página Principal</h1>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Nome</th>
+    <th>Imagem</th>
+  </tr>
+  <tr th:each="p : ${pessoas}" th:object="${p}">
+    <td th:text="*{id}">ID</td>
+    <td th:text="*{nome}">Genero</td>
+    <td><img th:src="@{'/images/'+*{fotoUri}}"></td>
+  </tr>
+</table>
 </body>
 </html>
